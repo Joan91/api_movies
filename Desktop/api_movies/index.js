@@ -1,19 +1,23 @@
 const express = require('express');
 const app = express();
-const db = require('./database/models');
-moviesRouter = require('./routes/movies.js');
-genreRouter = require('./routes/genres.js');
+const db = require('../database/models');
 
 const cors = require('cors');
 
-
-app.get('/' , require('./database/models/index'));
+moviesRouter = require('./routes/movies');
+genreRouter = require('./routes/genres');
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
-app.use('/movies', moviesRouter);
-app.use('/genres', genreRouter);
+
+
+
+app.use('/api/movies', moviesRouter);
+app.use('/api/genres', genreRouter);
+
+
+
 
 
 app.listen(3000, function() {

@@ -1,5 +1,5 @@
 const db = require('../database/models');
-
+const Movie = require('../models/Movie');
 module.exports = {
     getAll: function (req,res){
         db.Movie.findAll()
